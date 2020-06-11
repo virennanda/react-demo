@@ -1,29 +1,34 @@
-import React, { Component } from "react";
-class Counter extends Component {
-  componentDidMount() {
-    const { startNumber } = this.props;
-
-    this.setState({ startNumber: startNumber || 1 });
-  }
-
-  handleClick = () => {
-    let { startNumber } = this.state;
-    startNumber = startNumber - 1;
-    this.setState({ startNumber: startNumber });
-  };
-
-  state = {};
-  render() {
-    return (
-      <div className="p-2 bg-warning">
-        <button onClick={this.handleClick} className="btn btn-primary m-1">
-          -
-        </button>
-        <span>{this.state.startNumber || 0}</span>
-        <button className="btn btn-primary m-1">+</button>
-      </div>
-    );
-  }
-}
+import React from "react";
+const Counter = ({
+  memberId,
+  memberName,
+  penalty,
+  onPenaltyIncrement,
+  onPenaltyDecrement,
+}) => {
+  return (
+    <div className="p-2">
+      <button
+        onClick={() => {
+          onPenaltyDecrement(memberId);
+        }}
+        className="btn btn-danger btn-sm m-2"
+      >
+        -
+      </button>
+      <span>{memberName}</span>
+      <button
+        onClick={() => {
+          onPenaltyIncrement(memberId);
+        }}
+        className="btn btn-primary btn-sm m-2"
+      >
+        +
+      </button>
+      <span>{penalty}</span>
+      <button className="btn btn-info btn-sm m-2">Delete</button>
+    </div>
+  );
+};
 
 export default Counter;

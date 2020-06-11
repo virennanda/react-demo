@@ -1,14 +1,16 @@
-import React from "react";
-import Counter from "./component/counter";
-import NavBar from "./component/navBar";
+import React, { Component } from "react";
+import Counters from "./component/counters";
 
-function App() {
-  return (
-    <React.Fragment>
-      <NavBar />
-      <Counter />
-    </React.Fragment>
-  );
+class App extends Component {
+  state = {};
+
+  render() {
+    return (
+      <React.Fragment>
+        <Counters />
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
